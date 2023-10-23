@@ -52,7 +52,7 @@
 function viewPdf() {
 	pdfMake.createPdf(docDefinition).getDataUrl(function(dataURL) {
        document.getElementById('pdfV').src = dataURL;
-   });
+    });
 }
 
 function downloadPdf() {
