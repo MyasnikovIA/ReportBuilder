@@ -1,0 +1,15 @@
+         .grid_sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+         .grid_sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 17px; height: 16px; }
+         .highlight {
+            border: 1px solid red;
+            font-weight: bold;
+            font-size: 45px;
+            background-color: #333333;
+         }
+         .grid_row {
+            border: 1px solid #DDDDDD;
+            color: #333333;
+         }
+        .grid_sortable ul { list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #333333; }
+        .grid_sortable li { float: left; }
+        .grid_sortable li a {display: block; color: white; text-align: center; padding: 16px;text-decoration: none;}

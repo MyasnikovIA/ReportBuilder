@@ -1,0 +1,74 @@
+<!-- Learnprogramo - programming made simple -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Reading </title>
+    <meta charset="utf-8" />
+</head>
+<body id="target">
+    <br/>https://codepen.io/diguifi/pen/YdBbyz
+    <br/>http://pdfmake.org/playground.html
+    <div class="item">
+        <button onClick="viewPdf()">Generate PDF -></button>
+        <button onClick="downloadPdf()">download Pdf -></button>
+        <button onClick="openPdf()">open Pdf -></button>
+        <button onClick="printPdf()">print Pdf -></button>
+    </div>
+
+<div class="vertical-line"></div>
+   <iframe id='pdfV' style="width:100%; height:500px"></iframe>
+</body>
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.40/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.40/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.385/build/pdf.min.js"></script>
+-->
+<script src="scripts/pdf_make/pdfmake.min.js"></script>
+<script src="scripts/pdf_make/vfs_fonts.js"></script>
+<!--
+<script src="scripts/pdf_make/moment.min.js"></script>
+<script src="scripts/pdf_make/pdf.min.js"></script>
+-->
+
+<script>
+
+        const docDefinition = {
+            content: [
+                {
+                    alignment: 'center',
+                    text: 'PPRA',
+                    style: 'header',
+                    fontSize: 23,
+                    bold: true,
+                    margin: [0, 10],
+                },
+                'dddddddddа ыфваыфваыфаыф dddddd'
+            ]
+        };
+
+
+
+function viewPdf() {
+	pdfMake.createPdf(docDefinition).getDataUrl(function(dataURL) {
+       document.getElementById('pdfV').src = dataURL;
+   });
+}
+
+function downloadPdf() {
+    var pdf = pdfMake.createPdf(docDefinition);
+    pdf.download(); // скачать документ
+}
+function openPdf() {
+    var pdf = pdfMake.createPdf(docDefinition);
+    pdf.open();     // открыть в новой вкладке
+}
+function printPdf() {
+    pdfMake.createPdf(docDefinition).print();
+}
+
+
+
+
+</script>
+</html>

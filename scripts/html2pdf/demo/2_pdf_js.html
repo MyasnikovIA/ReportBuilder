@@ -1,0 +1,41 @@
+<!-- (A) LOAD HTML2PDF -->
+<!-- https://cdnjs.com/libraries/html2pdf.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<div id="content">
+    <!-- (B) DUMMY CONTENTS -->
+    <h1>Hello World!</h1>
+    <p>This is an example.</p>
+    <iframe
+  id="inlineFrameExample"
+  title="Inline Frame Example"
+  width="300"
+  height="200"
+  src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+        </iframe>
+</div>
+
+ <iframe id="pdf_iframe" style="right:0; top:20px; bottom:0; height:100; width:650px; padding:20px;"></iframe>
+
+<!-- (C) ENTIRE PAGE TO PDF -->
+<script>
+function toPDF () {
+    var targetElement = document.getElementById('content');
+    // html2pdf().from(targetElement).toPdf().get('pdf').then(function(pdf) {
+    //      document.getElementById('pdf_iframe').src = pdf.output('datauristring');
+    //      pdf.addPage();
+    // }).toContainer().toCanvas().toPdf().save();
+    var pdf = html2pdf();
+    pdf = pdf.from(targetElement);
+    pdf = pdf.toPdf();
+    pdf = pdf.get('pdf').then(function(pdf) {
+        document.getElementById('pdf_iframe').src = pdf.output('datauristring');
+        pdf.addPage();
+    })
+    pdf = pdf.toContainer();
+    pdf = pdf.toCanvas();
+    pdf = pdf.toPdf();
+    // pdf.save();
+}
+</script>
+<button onclick="toPDF()">To PDF</button>

@@ -1,0 +1,18 @@
+<!-- (A) LOAD HTML2PDF -->
+<!-- https://cdnjs.com/libraries/html2pdf.js -->
+<!--script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script-->
+<script src="scripts/html2pdf/html2pdf.bundle.min.js"></script>
+
+<!-- (B) DUMMY CONTENTS -->
+<h1>Hello World!</h1>
+<p>This is an example.</p>
+
+<!-- (C) ENTIRE PAGE TO PDF -->
+<script>
+function toPDF () {
+     html2pdf()
+    .from(document.body)
+    .save();
+}
+</script>
+<button onclick="toPDF()">To PDF</button>

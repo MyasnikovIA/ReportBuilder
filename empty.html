@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <style>
+    .is_select_element_ide {
+        background: rgba(240, 240, 240, 0.5);
+    }
+    .page {
+        border: 1px solid #dddddd;
+    }
+    </style>
+    <script>
+    $(function() {
+       $('.page_head').resizable({handles:'s'}); $('.page_body').resizable({handles:'s'});$('.page_bottom').resizable({handles:'s'});
+    });
+    </script>
+
+</head>
+<body cmptype="body">
+    <div cmptype="page" style="width: 780px; height:1100px; position: relative;left: 0px; top: 0px;border: 1px dotted;">
+        <div cmptype="page_head" class="page_head" style="width: 780px; height:50px; position: relative;left: 0px; top: 0px;border: 1px dotted;">
+
+        </div>
+        <div cmptype="page_body" class="page_body" style="width: 780px; height:1000px; position: relative;left: 0px; top: 0px;border: 1px dotted;">
+
+         </div>
+         <div cmptype="page_bottom" class="page_bottom" style="width: 780px; height:46px; position: relative;left: 0px; top: 0px;border: 1px dotted;">
+
+         </div>
+    </div>
+
+</body>
+</html>

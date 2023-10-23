@@ -1,0 +1,74 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script-->
+     <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+     <script src="scripts/jspdf/jspdf.umd.js"></script>
+     <script src="scripts/jspdf/jspdf.plugin.autotable.min.js"></script>
+
+     <!--script src="scripts/jspdf/jspdf.debug.js"></script-->
+</head>
+<body>
+    <table id="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th>Country</th>
+          <th>IP-address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Donna</td>
+          <td>Moore</td>
+          <td>dmoore0@furl.net</td>
+          <td>China</td>
+          <td>211.56.242.221</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Janice</td>
+          <td>Henry</td>
+          <td>jhenry1@theatlantic.com</td>
+          <td>Ukraine</td>
+          <td>38.36.7.199</td>
+        </tr>
+      </tbody>
+    </table>
+<iframe id="docpdf" style="background-color:#EEE; height:400px; width:710px">
+    PDF goes here
+</iframe>
+</body>
+<script>
+   $(document).ready(function () {
+        var doc = new jspdf.jsPDF()
+        // Simple data example
+        doc.autoTable({
+           html: '#table',
+           startX: 10,
+           startY: 15,
+           theme: 'grid',
+           bodyStyles: {lineColor: [0, 0, 0]},
+           styles: {
+              font: "SakalBharati", //<------ This is the font. I have already added this font using doc.addfont()
+              fontSize: 10,
+              cellWidth: 'auto',
+              halign: 'center',
+              fillColor: [225, 197, 238]
+           },
+        })
+        doc.setFont("SakalBharati","normal");
+        doc.autoTable({ html: '#table' })
+        // doc.save('table.pdf')
+        document.getElementById('docpdf').src = doc.output('datauristring')
+    });
+</script>
+</html>

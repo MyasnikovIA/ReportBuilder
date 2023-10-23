@@ -1,0 +1,87 @@
+<!-- Learnprogramo - programming made simple -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Reading </title>
+    <meta charset="utf-8" />
+</head>
+<body id="target">
+   <div class="container">
+    <div class="item">
+        <button onClick="printPdf(1)">Generate PDF -></button>
+    </div>
+    <div class="item">
+        <div id="canvas"/>
+    </div>
+</div>
+
+<div class="vertical-line"></div>
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.40/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.40/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.0.385/build/pdf.min.js"></script>
+<script src="scripts/pdfmake/build/fonts/Roboto.js"></script>
+<script>
+
+
+const canvasElement = document.getElementById("canvas");
+
+function printPdf(action) {
+    const docDefinition = {
+        content: [
+            {
+                alignment: 'center',
+                text: 'PPRA',
+                style: 'header',
+                fontSize: 23,
+                bold: true,
+                margin: [0, 10],
+            },
+            'ddddddddddddddd'
+        ]
+    };
+
+        pdfMake.createPdf(docDefinition).getDataUrl((dataURL) => {
+            renderPDF(dataURL, document.getElementById('canvas'));
+        });
+    // const pdf = createPdf(docDefinition);
+    // pdf.download('PPRA.pdf');
+}
+
+
+
+
+
+function renderPDF(url, canvasContainer, options) {
+    options = options || { scale: 1.4 };
+    function renderPage(page) {
+        const viewport = page.getViewport(options.scale);
+        const wrapper = document.createElement("div");
+        wrapper.className = "canvas-wrapper";
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const renderContext = {
+          canvasContext: ctx,
+          viewport: viewport
+        };
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        wrapper.appendChild(canvas)
+        canvasContainer.appendChild(wrapper);
+        page.render(renderContext);
+    }
+    function renderPages(pdfDoc) {
+        for (let num = 1; num <= pdfDoc.numPages; num++) {
+            pdfDoc.getPage(num).then(renderPage);
+        }
+    }
+
+    PDFJS.disableWorker = true;
+    PDFJS.getDocument(url).then(renderPages);
+}
+
+</script>
+</html>
