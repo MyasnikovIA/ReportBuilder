@@ -14,63 +14,22 @@
             runScriptLib: "$('.page_head').resizable({handles:'s'}); $('.page_body').resizable({handles:'s'});$('.page_bottom').resizable({handles:'s'});",  // Pапускаемый скрипту при добавлении
             attrList: [{cmptype:'page'}]                                               // инициирование атрибутов
         },
-        {   id: 'group',
-            pid: 'view',
-            tagName: 'div',                                                                     // тэк элемента, который создается сначала
-            text: 'Group',                                                                       // название в дереве
-            cmptype: 'tmp',
-            classList: ['ui-widget-content','snapper','draggable', 'resizable'],                                                   // инициализация класса (CSS)
-            styleList: [{left:55, top:55, width:200, height:200, position:'absolute'}],                                    // инициирование стиля
-            runScriptLib: "$('.draggable').draggable({snap: '.snapper, .droppable', snapTolerance: 25}); $('.resizable').resizable();",  // Pапускаемый скрипту при добавлении
-            attrList: [{cmptype:'tmp',visible:'false'}]                                               // инициирование атрибутов
-        },
         {   id: 'label',
             pid: 'view',
-            tagName: 'div',                                                        // тэк элемента, который создается сначала
-            text: 'Label',                                                         // название в дереве
-            cmptype: 'label',
+            tagName: 'span',                                                        // тэк элемента, который создается сначала
+            text: 'Text',                                                           // название в дереве
+            cmptype: 'text',
             editWindowComponent: 'EditPage/editHtml.html',                         // окно редактирования компонента
             editWindowInnerHtml: 'EditPage/editInnertHtml.html',                   // окно редактирования компонента
-            componentHtml: 'Component/Label/index.html',                           // путь к компоненту
-            componentJsLib: 'Component/Label/lib.js',                              // путь к JS библитоеки
-            componentCssLib: 'Component/Label/lib.css',                            // путь к CSS библиотеки
-            runScriptLib: "$('.draggable').draggable({snap: '.snapper, .droppable', snapTolerance: 25}); $('.resizable').resizable();",  // Pапускаемый скрипту при добавлении
-            classList: ['ui-widget-content','snapper','draggable', 'resizable'],                                                   // инициализация класса (CSS)
-            styleList: {left:55, top:55, width:200, height:22, position:'absolute'},                                    // инициирование стиля
-            attrList: [{cmptype:'label'}]                                                                                 // инициирование атрибутов
-        },
-        {   id: 'grid',
-            pid: 'view',
-            tagName: 'div',                                                                     // тэк элемента, который создается сначала
-            text: 'Grid',                                                                       // название в дереве
-            cmptype: 'grid',
-            editWindowComponent: 'EditPage/editHtml.html',                                      // окно редактирования компонента
-            editWindowInnerHtml: 'EditPage/editInnertHtml.html',                                // окно редактирования компонента
-            componentHtml: 'Component/Grid/index.html',                                         // путь к компоненту
-            componentJsLib: 'Component/Grid/lib.js',                                            // путь к JS библитоеки
-            componentCssLib: 'Component/Grid/lib.css',                                          // путь к CSS библиотеки
+            componentHtml: 'Component/Text/index.html',                            // путь к компоненту
+            componentJsLib: 'Component/Text/lib.js',                               // путь к JS библитоеки
+            componentCssLib: 'Component/Text/lib.css',                             // путь к CSS библиотеки
             runScriptLib: "$('.draggable').draggable({snap: '.snapper, .droppable', snapTolerance: 25});$('.resizable').resizable();",  // Pапускаемый скрипту при добавлении
-            classList: ['ui-widget-content','snapper','grid','draggable', 'resizable'],         // инициализация класса (CSS)
-            styleList: {left:55, top:55, width:700, height:22, position:'absolute'}, // инициирование стиля
-            attrList: [{cmptype:'grid'}]                                               // инициирование атрибутов
+            classList: ['ui-widget-content','snapper','draggable', 'resizable'],                                                        // инициализация класса (CSS)
+            styleList: {'font-weight':'bold', 'font-size':'23px', 'text-align':'left', 'width':'100px', 'height': '32', 'position': 'absolute', 'left': '0px', 'top': '0px'},                                    // инициирование стиля
+            attrList: [{cmptype:'text'}]                                                                                                // инициирование атрибутов
         },
-        {   id: 'grid_field',
-            pid: 'view',
-            tagName: 'div',                                                        // тэк элемента, который создается сначала
-            text: 'Grid_field',                                                    // название в дереве
-            cmptype: 'grid_field',
-            tagParent: 'grid',
-            editWindowComponent: 'EditPage/editHtml.html',                        // окно редактирования компонента
-            editWindowInnerHtml: 'EditPage/editInnertHtml.html',                  // окно редактирования компонента
-            componentHtml: 'Component/Grid_field/index.html',                           // путь к компоненту
-            componentJsLib: 'Component/Grid_field/lib.js',                              // путь к JS библитоеки
-            componentCssLib: 'Component/Grid_field/lib.css',                            // путь к CSS библиотеки
-            runScriptLib: "$('.draggable').draggable({snap: '.snapper, .droppable', snapTolerance: 25});$('.resizable').resizable();",  // Pапускаемый скрипту при добавлении
-            classList: ['ui-widget-content','snapper','grid_field','draggable', 'resizable'],                                                    // инициализация класса (CSS)
-            styleList: {width:100, height:22},                                                                                        // инициирование стиля
-            attrList: [{cmptype:'grid_field'}]                                                                                          // инициирование атрибутов
-        },
-       {   id: 'num_page',
+        {   id: 'num_page',
             pid: 'view',
             tagName: 'div',                                                        // тэк элемента, который создается сначала
             text: 'Num_page',                                                    // название в дереве
@@ -85,7 +44,5 @@
             styleList: {width:100, height:22},
             attrList: [{cmptype:'num_page'}]
         },
-
-
 ]
 

@@ -16,22 +16,33 @@
     </style>
     <script>
     $(function() {
-       $('.page_head').resizable({handles:'s'}); $('.page_body').resizable({handles:'s'});$('.page_bottom').resizable({handles:'s'});
+       $('.page_head').resizable({handles:'s'});
+       $('.page_body').resizable({handles:'s'});
+       $('.page_bottom').resizable({handles:'s'});
+       $('.draggable').draggable({snap: '.snapper, .droppable', snapTolerance: 25});
+       $('.resizable').resizable();
+       $(document.body.querySelectorAll('[class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"]')).remove();
     });
     </script>
 
 </head>
 <body cmptype="body">
-    <div cmptype="page" style="width: 780px; height:1100px; position: relative;left: 0px; top: 0px;border: 1px dotted;">
-        <div cmptype="page_head" class="page_head" style="width: 780px; height:50px; position: relative;left: 0px; top: 0px;border: 1px dotted;">
+
+    <div cmptype="document" cmptype="document" page-size="A4" page-orientation="landscape" page-margins="[0,0,0,0]">
+        <div cmptype="info" title="заголовок документа" author="Автор документа" subject=" тема " keywords="ключевое слово"></div>
+
+        <div cmptype="header" class="page_head snapper" style="width: 548px; height:32px; position: relative; left: 0px; top: 0px; border: 1px dotted;">
 
         </div>
-        <div cmptype="page_body" class="page_body" style="width: 780px; height:1000px; position: relative;left: 0px; top: 0px;border: 1px dotted;">
 
-         </div>
-         <div cmptype="page_bottom" class="page_bottom" style="width: 780px; height:46px; position: relative;left: 0px; top: 0px;border: 1px dotted;">
 
-         </div>
+        <div cmptype="content" class="page_body snapper" style="width: 548px; height:500px; position: relative; left: 0px; top: 0px; border: 1px dotted;">
+        </div>
+
+
+        <div cmptype="footer" class="page_bottom snapper" style="width: 548px; height:32px; position: relative; left: 0px; top: 0px; border: 1px dotted;">
+
+        </div>
     </div>
 
 </body>
